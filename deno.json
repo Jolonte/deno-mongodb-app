@@ -1,0 +1,39 @@
+{
+  "compilerOptions": {
+    "allowJs": true,
+    "lib": ["deno.window"],
+    "strict": true
+  },
+  "lint": {
+    "include": ["src/"],
+    "exclude": ["src/testdata/", "data/fixtures/**/*.ts"],
+    "rules": {
+      "tags": ["recommended"],
+      "include": ["ban-untagged-todo"],
+      "exclude": ["no-unused-vars"]
+    }
+  },
+  "fmt": {
+    "useTabs": true,
+    "lineWidth": 80,
+    "indentWidth": 4,
+    "semiColons": false,
+    "singleQuote": true,
+    "proseWrap": "preserve",
+    "include": ["src/"],
+    "exclude": ["src/testdata/", "data/fixtures/**/*.ts"]
+  },
+  "lock": false,
+  "nodeModulesDir": true,
+  "tasks": {
+    "format": "deno fmt",
+    "lint": "deno lint",
+    "watch": "deno run --watch --allow-env src/app.js",
+    "start": "deno task format && deno task lint && deno task watch"
+  },
+  "imports": {
+    "mongoose": "npm:mongoose@8.0.1",
+    "hono": "https://deno.land/x/hono@v3.10.1/mod.ts",
+    "dotenv": "https://deno.land/std@0.207.0/dotenv/mod.ts"
+  }
+}
