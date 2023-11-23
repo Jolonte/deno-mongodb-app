@@ -1,19 +1,15 @@
-import mongoose from 'mongoose'
+import mongoose from 'mongoose';
 
 const clientPreferencesSchema = new mongoose.Schema({
-	clientPreferencesId: String,
-	userId: String,
-	clientPreferencesItems: [
-		{
-			style: String,
-			color: String,
-		},
-	],
-}, { timestamps: true })
+  userId: String,
+  clientPreferencesItems: [
+    {
+      style: String,
+      color: String,
+    },
+  ],
+});
 
-const ClientPreferencesModel = mongoose.model(
-	'ClientPreferences',
-	clientPreferencesSchema,
-)
+const ClientPreferencesModel = mongoose.model('ClientPreferences', clientPreferencesSchema);
 
-export default ClientPreferencesModel
+export default ClientPreferencesModel;
