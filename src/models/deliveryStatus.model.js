@@ -1,11 +1,14 @@
-import mongoose from 'mongoose';
+import mongoose from 'mongoose'
 
 const deliveryStatusSchema = new mongoose.Schema({
-  purchaseId: String,
-  deliveryStatus: String,
-  deliveryTrackingNumber: Number,
-});
+	purchaseId: String,
+	deliveryStatus: String,
+	deliveryTrackingNumber: Number,
+})
 
-const DeliveryStatusModel = mongoose.model('DeliveryStatus', deliveryStatusSchema);
+const DeliveryStatusModel = mongoose.model(
+	'DeliveryStatus',
+	deliveryStatusSchema,
+)
 
-export default DeliveryStatusModel;
+export default DeliveryStatusModel
