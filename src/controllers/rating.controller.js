@@ -3,7 +3,7 @@ import UserModel from '../models/user.model.js'
 import ProductModel from '../models/product.model.js'
 
 const RatingController = {
-	createRating: async (req, res) => {
+	addRating: async (req, res) => {
 		try {
 			const { userId, productId } = req.body
 

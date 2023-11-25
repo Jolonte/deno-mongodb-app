@@ -5,7 +5,7 @@ const RatingRouter = express.Router()
 
 RatingRouter
 	.route('/ratings')
-	.post((req, res) => RatingController.createRating(req, res))
+	.post((req, res) => RatingController.addRating(req, res))
 	.get((req, res) => RatingController.getAllRatings(req, res))
 
 RatingRouter
