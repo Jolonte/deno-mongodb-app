@@ -8,7 +8,7 @@ const productSchema = new mongoose.Schema({
 		// enum: [''],
 	},
 	productSize: { type: String, required: true },
-	productAmount: { type: Number, required: true },
+	productStock: { type: Number, required: true },
 	productModel: { type: String, required: true },
 }, { timestamps: true })
 
