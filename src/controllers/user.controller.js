@@ -13,12 +13,6 @@ const UserController = {
 	getAllUsers: async (req, res) => {
 		try {
 			const users = await UserModel.find()
-			if (!users.length) {
-				res.status(200).json({
-					msg: 'Não existem usuários cadastrados.',
-				})
-				return
-			}
 			res.status(200).json(users)
 		} catch (error) {
 			res.status(500).send(error.message)

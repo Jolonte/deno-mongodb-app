@@ -11,9 +11,14 @@ const RatingController = {
 			const userExists = await UserModel.exists({ _id: userId })
 			const productExists = await ProductModel.exists({ _id: productId })
 
-			if (!userExists || !productExists) {
+			if (!userExists) {
 				res.status(400).json({
-					msg: 'Usuário ou produto não encontrados.',
+					msg: 'Usuário não encontrado.',
+				})
+				return
+			} else if (!productExists) {
+				res.status(400).json({
+					msg: 'Produto não encontrado.',
 				})
 				return
 			}
@@ -28,12 +33,6 @@ const RatingController = {
 	getAllRatings: async (req, res) => {
 		try {
 			const rating = await RatingModel.find().populate('userId productId')
-			if (!rating) {
-				res.status(404).json({
-					msg: 'Não existem ratings cadastrados.',
-				})
-				return
-			}
 			res.status(200).json({
 				rating,
 				msg: 'Operação concluída com sucesso!',

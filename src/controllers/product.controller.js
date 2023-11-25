@@ -13,12 +13,6 @@ const ProductController = {
 	getAllProducts: async (req, res) => {
 		try {
 			const products = await ProductModel.find()
-			if (!products) {
-				res.status(404).json({
-					msg: 'Não existem produtos cadastrados.',
-				})
-				return
-			}
 			res.status(200).json({
 				products,
 				msg: 'Operação concluída com sucesso!',
