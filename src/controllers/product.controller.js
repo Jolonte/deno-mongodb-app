@@ -1,6 +1,6 @@
 import ProductModel from '../models/product.model.js'
 
-const productController = {
+const ProductController = {
 	createProduct: async (req, res) => {
 		try {
 			await ProductModel.create(req.body)
@@ -81,4 +81,4 @@ const productController = {
 	},
 }
 
-export default productController
+export default ProductController
