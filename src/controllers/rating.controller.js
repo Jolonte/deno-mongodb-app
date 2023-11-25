@@ -66,9 +66,7 @@ const RatingController = {
 	deleteRatingById: async (req, res) => {
 		try {
 			const id = req.params.id
-			const rating = await RatingModel.findByIdAndDelete(id).populate(
-				'userId productId',
-			)
+			const rating = await RatingModel.findByIdAndDelete(id)
 			if (!rating) {
 				res.status(404).json({ msg: 'Rating não encontrado.' })
 				return
