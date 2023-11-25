@@ -30,6 +30,7 @@ const ProductController = {
 			})
 			if (!product) {
 				res.status(404).json({ msg: 'Produto não encontrado.' })
+				return
 			}
 			res.status(200).json({
 				product,
@@ -46,6 +47,7 @@ const ProductController = {
 			const product = await ProductModel.findByIdAndDelete(id)
 			if (!product) {
 				res.status(404).send({ msg: 'Produto não encontrado.' })
+				return
 			}
 			res.status(200).json({
 				product,
@@ -64,6 +66,7 @@ const ProductController = {
 			})
 			if (!product) {
 				res.status(404).send({ msg: 'Produto não encontrado.' })
+				return
 			}
 			res.status(200).json({
 				product,

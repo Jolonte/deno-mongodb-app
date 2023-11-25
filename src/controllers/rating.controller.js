@@ -52,6 +52,7 @@ const RatingController = {
 				res.status(404).json({
 					msg: 'Rating não encontrado.',
 				})
+				return
 			}
 			res.status(200).json({
 				rating,
@@ -70,6 +71,7 @@ const RatingController = {
 			)
 			if (!rating) {
 				res.status(404).json({ msg: 'Rating não encontrado.' })
+				return
 			}
 			res.status(200).json({
 				rating,
@@ -88,6 +90,7 @@ const RatingController = {
 			}).populate('userId productId')
 			if (!rating) {
 				res.status(404).json({ msg: 'Rating não encontrado.' })
+				return
 			}
 			res.status(200).json({
 				rating,
