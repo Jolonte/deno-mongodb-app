@@ -10,5 +10,10 @@ ShoppingCartRoute
 
 ShoppingCartRoute
 	.route('/shoppingcart/:id')
+	.get((req, res) => ShoppingCartController.getShoppingCartById(req, res))
+	.delete((req, res) =>
+		ShoppingCartController.deleteShoppingCartById(req, res)
+	)
+	.put((req, res) => ShoppingCartController.updateShoppingCartById(req, res))
 
 export default ShoppingCartRoute
