@@ -59,7 +59,9 @@ const UserController = {
 	updateUserById: async (req, res) => {
 		try {
 			const id = req.params.id
-			const user = await UserModel.findByIdAndUpdate(id, req.body)
+			const user = await UserModel.findByIdAndUpdate(id, req.body, {
+				new: true,
+			})
 
 			if (!user) {
 				res.status(404).json({ msg: 'Usuário não encontrado.' })
