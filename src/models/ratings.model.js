@@ -11,7 +11,7 @@ const ratingSchema = new mongoose.Schema({
 		ref: 'Product',
 		required: true,
 	},
-	ratingNumber: { type: Number, required: true },
+	ratingNumber: { type: Number, required: true, enum: [1, 2, 3, 4, 5] },
 	ratingComment: [
 		{
 			body: { type: String, required: true, maxlength: 128 },
