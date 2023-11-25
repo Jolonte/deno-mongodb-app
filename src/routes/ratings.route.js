@@ -1,5 +1,5 @@
 import express from 'express'
-import RatingController from '../controllers/ratings.controller.js'
+import RatingController from '../controllers/rating.controller.js'
 
 const RatingRouter = express.Router()
 
