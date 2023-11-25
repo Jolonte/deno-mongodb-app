@@ -25,7 +25,7 @@ const UserController = {
 		}
 	},
 
-	getById: async (req, res) => {
+	getUserById: async (req, res) => {
 		try {
 			const id = req.params.id
 			const user = await UserModel.findById(id)
@@ -39,7 +39,7 @@ const UserController = {
 		}
 	},
 
-	deleteById: async (req, res) => {
+	deleteUserById: async (req, res) => {
 		try {
 			const id = req.params.id
 			const user = await UserModel.findByIdAndDelete(id)
@@ -56,7 +56,7 @@ const UserController = {
 		}
 	},
 
-	updateById: async (req, res) => {
+	updateUserById: async (req, res) => {
 		try {
 			const id = req.params.id
 			const user = await UserModel.findByIdAndUpdate(id, req.body)

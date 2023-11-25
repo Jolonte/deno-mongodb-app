@@ -13,14 +13,14 @@ UserRouter
 
 UserRouter
 	.route('/users/:id')
-	.get((req, res) => UserController.getById(req, res))
+	.get((req, res) => UserController.getUserById(req, res))
 
 UserRouter
 	.route('/users/:id')
-	.delete((req, res) => UserController.deleteById(req, res))
+	.delete((req, res) => UserController.deleteUserById(req, res))
 
 UserRouter
 	.route('/users/:id')
-	.put((req, res) => UserController.updateById(req, res))
+	.put((req, res) => UserController.updateUserById(req, res))
 
 export default UserRouter
