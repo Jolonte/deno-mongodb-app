@@ -8,7 +8,7 @@ const clientPreferencesSchema = new mongoose.Schema({
 			color: String,
 		},
 	],
-})
+}, { timestamps: true })
 
 const ClientPreferencesModel = mongoose.model(
 	'ClientPreferences',

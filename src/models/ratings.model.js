@@ -18,7 +18,7 @@ const ratingSchema = new mongoose.Schema({
 			date: { type: Date, default: Date.now },
 		},
 	],
-})
+} , { timestamps: true })
 
 ratingSchema.index({ userId: 1, productId: 1 })
 
