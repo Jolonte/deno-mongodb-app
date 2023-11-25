@@ -44,7 +44,7 @@ const userSchema = new mongoose.Schema({
 			message: 'CEP deve ter 8 caracteres',
 		},
 	},
-})
+}, { timestamps: true })
 
 const UserModel = mongoose.model('User', userSchema)
 

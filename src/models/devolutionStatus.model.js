@@ -14,7 +14,7 @@ const devolutionSchema = new mongoose.Schema({
 		},
 	],
 	devolutionStatus: String,
-})
+}, { timestamps: true })
 
 const DevolutionModel = mongoose.model('Devolution', devolutionSchema)
 

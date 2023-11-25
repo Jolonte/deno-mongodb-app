@@ -4,7 +4,7 @@ const deliveryStatusSchema = new mongoose.Schema({
 	purchaseId: String,
 	deliveryStatus: String,
 	deliveryTrackingNumber: Number,
-})
+}, { timestamps: true })
 
 const DeliveryStatusModel = mongoose.model(
 	'DeliveryStatus',
