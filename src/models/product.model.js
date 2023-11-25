@@ -1,11 +1,15 @@
 import mongoose from 'mongoose'
 
 const productSchema = new mongoose.Schema({
-	productImages: String,
-	productCategory: String,
-	productSize: String,
-	productAmount: Number,
-	productModel: String,
+	productImages: [{ type: String, required: true }],
+	productCategory: {
+		type: String,
+		required: true,
+		// enum: [''],
+	},
+	productSize: { type: String, required: true },
+	productAmount: { type: Number, required: true },
+	productModel: { type: String, required: true },
 })
 
 const ProductModel = mongoose.model('Product', productSchema)
