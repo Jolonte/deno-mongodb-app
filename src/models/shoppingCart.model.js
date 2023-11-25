@@ -15,7 +15,7 @@ const shoppingCartSchema = new mongoose.Schema({
 			},
 			cartAmount: { type: Number, required: true },
 		},
-	],	
+	],
 }, { timestamps: true })
 
 const ShoppingCartModel = mongoose.model('ShoppingCart', shoppingCartSchema)
