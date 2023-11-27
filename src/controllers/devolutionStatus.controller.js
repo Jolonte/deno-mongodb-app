@@ -7,14 +7,14 @@ const DevolutionStatusController = {
 		try {
 			const { userId, productId } = req.body
 
-			const user = await UserModel.findOne({ _id: userId })
-			const product = await ProductModel.findOne({ _id: productId })
+			const userExists = await UserModel.exists({ _id: userId })
+			const productExists = await ProductModel.exists({ _id: productId })
 
-			if (!user) {
+			if (!userExists) {
 				return res.status(400).json({
 					msg: 'Usuário não encontrado.',
 				})
-			} else if (!product) {
+			} else if (!productExists) {
 				return res.status(400).json({
 					msg: 'Produto não encontrado.',
 				})
@@ -94,15 +94,15 @@ const DevolutionStatusController = {
 			const id = req.params.id
 			const { userId, productId } = req.body
 
-			const user = await UserModel.findOne({ _id: userId })
-			const product = await ProductModel.findOne({ _id: productId })
+			const userExists = await UserModel.exists({ _id: userId })
+			const productExists = await ProductModel.exists({ _id: productId })
 
-			if (!user) {
+			if (!userExists) {
 				res.status(400).json({
 					msg: 'Usuário não encontrado.',
 				})
 				return
-			} else if (!product) {
+			} else if (!productExists) {
 				res.status(400).json({
 					msg: 'Produto não encontrado.',
 				})
