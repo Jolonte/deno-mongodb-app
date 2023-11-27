@@ -27,7 +27,7 @@ const ClientPreferencesController = {
 				.find()
 				.lean()
 				.populate('userId')
-				
+
 			res.status(200).json({
 				clientPreference,
 				msg: 'Operação concluída com sucesso!',

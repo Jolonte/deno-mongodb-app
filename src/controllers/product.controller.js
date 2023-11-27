@@ -28,7 +28,7 @@ const ProductController = {
 			const product = await ProductModel.findByIdAndUpdate(id, req.body, {
 				new: true,
 			}).lean()
-			
+
 			if (!product) {
 				res.status(404).json({ msg: 'Produto não encontrado.' })
 				return

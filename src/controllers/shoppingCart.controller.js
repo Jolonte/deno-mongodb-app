@@ -71,9 +71,10 @@ const ShoppingCartController = {
 	getShoppingCartById: async (req, res) => {
 		try {
 			const id = req.params.id
-			const shoppingCart = await ShoppingCartModel.findById(id).lean().populate(
-				'userId cartProducts.productId',
-			)
+			const shoppingCart = await ShoppingCartModel.findById(id).lean()
+				.populate(
+					'userId cartProducts.productId',
+				)
 
 			if (!shoppingCart) {
 				res.status(404).json({

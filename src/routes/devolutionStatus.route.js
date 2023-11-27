@@ -5,12 +5,18 @@ const DevolutionStatusRoute = express.Router()
 
 DevolutionStatusRoute
 	.route('/devolutionstatus')
-	.post((req, res) => DevolutionStatusController.createDevolutionStatus(req, res))
-	.get((req, res) => DevolutionStatusController.getAllDevolutionStatus(req, res))
+	.post((req, res) =>
+		DevolutionStatusController.createDevolutionStatus(req, res)
+	)
+	.get((req, res) =>
+		DevolutionStatusController.getAllDevolutionStatus(req, res)
+	)
 
 DevolutionStatusRoute
 	.route('/devolutionstatus/:id')
-	.get((req, res) => DevolutionStatusController.getDevolutionStatusById(req, res))
+	.get((req, res) =>
+		DevolutionStatusController.getDevolutionStatusById(req, res)
+	)
 	.delete((req, res) =>
 		DevolutionStatusController.deleteDevolutionStatusById(req, res)
 	)

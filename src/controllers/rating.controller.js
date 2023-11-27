@@ -33,9 +33,9 @@ const RatingController = {
 	getAllRatings: async (req, res) => {
 		try {
 			const rating = await RatingModel
-			.find()
-			.lean()
-			.populate('userId productId')
+				.find()
+				.lean()
+				.populate('userId productId')
 
 			res.status(200).json({
 				rating,
@@ -52,7 +52,7 @@ const RatingController = {
 			const rating = await RatingModel
 				.findById(id)
 				.lean()
-				.populate('userId productId',)
+				.populate('userId productId')
 			if (!rating) {
 				res.status(404).json({
 					msg: 'Rating não encontrado.',
