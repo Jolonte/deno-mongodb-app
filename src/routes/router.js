@@ -5,6 +5,7 @@ import RatingRouter from './ratings.route.js'
 import ShoppingCartRoute from './shoppingCart.route.js'
 import ClientPreferencesRoute from './clientProductsPreferences.route.js'
 import DeliveryStatusRoute from './deliveryStatus.route.js'
+import DevolutionStatusRoute from './devolutionStatus.route.js'
 
 const router = express.Router()
 
@@ -15,7 +16,8 @@ router.use(
 	RatingRouter,
 	ShoppingCartRoute,
 	ClientPreferencesRoute,
-	DeliveryStatusRoute
+	DeliveryStatusRoute,
+	DevolutionStatusRoute,
 )
 
 export default router
