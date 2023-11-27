@@ -4,14 +4,18 @@ import DevolutionStatusController from '../controllers/devolutionStatus.controll
 const DevolutionStatusRoute = express.Router()
 
 DevolutionStatusRoute
-	.route('/devolutionstatus/')
-	.post()
-	.get()
+	.route('/devolutionstatus')
+	.post((req, res) => DevolutionStatusController.createDevolutionStatus(req, res))
+	.get((req, res) => DevolutionStatusController.getAllDevolutionStatus(req, res))
 
 DevolutionStatusRoute
 	.route('/devolutionstatus/:id')
-	.get()
-	.delete()
-	.put()
+	.get((req, res) => DevolutionStatusController.getDevolutionStatusById(req, res))
+	.delete((req, res) =>
+		DevolutionStatusController.deleteDevolutionStatusById(req, res)
+	)
+	.put((req, res) =>
+		DevolutionStatusController.updateDevolutionStatusById(req, res)
+	)
 
 export default DevolutionStatusRoute
