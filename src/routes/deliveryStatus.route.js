@@ -1,17 +1,17 @@
 import express from "express"
-import deliveryStatusController from '../controllers/deliveryStatus.controller.js'
+import DeliveryStatusController from '../controllers/deliveryStatus.controller.js'
 
-const deliveryStatusRoute = express.Router()
+const DeliveryStatusRoute = express.Router()
 
-deliveryStatusRoute
+DeliveryStatusRoute
     .route('/deliverystatus')
     .post()
     .get()
 
-deliveryStatusRoute
+DeliveryStatusRoute
     .route('/deliverystatus/:id')
     .get()
     .delete()
     .put()
 
-export default deliveryStatusRoute
+export default DeliveryStatusRoute
