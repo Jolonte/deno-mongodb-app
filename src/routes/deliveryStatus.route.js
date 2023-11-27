@@ -5,13 +5,13 @@ const DeliveryStatusRoute = express.Router()
 
 DeliveryStatusRoute
 	.route('/deliverystatus')
-	.post()
-	.get()
+	.post((req, res) => DeliveryStatusController.createDeliveryStatus(req, res))
+	.get((req, res) => DeliveryStatusController.getAllDeliveryStatus(req, res))
 
 DeliveryStatusRoute
 	.route('/deliverystatus/:id')
-	.get()
-	.delete()
-	.put()
+	.get((req, res) => DeliveryStatusController.getDeliveryStatusById(req, res))
+	.delete((req, res) => DeliveryStatusController.deleteDeliveryStatusById(req, res))
+	.put((req, res) => DeliveryStatusController.updateDeliveryStatusById(req, res))
 
 export default DeliveryStatusRoute
