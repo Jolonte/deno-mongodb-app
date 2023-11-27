@@ -2,7 +2,7 @@ import mongoose from 'mongoose'
 
 const productSchema = new mongoose.Schema({
 	productImages: [{ type: String, required: true }],
-	productPrice: { type: Number, required: true, default: 0.00},
+	productPrice: { type: Number, required: true, default: 0.00 },
 	productCategory: {
 		type: String,
 		required: true,
