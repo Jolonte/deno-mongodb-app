@@ -83,6 +83,24 @@ const RatingController = {
 	updateRatingById: async (req, res) => {
 		try {
 			const id = req.params.id
+			const { userId, productId } = req.body
+
+			// Verifica se os campos userId e productId existem no BD
+			const userExists = await UserModel.exists({ _id: userId })
+			const productExists = await ProductModel.exists({ _id: productId })
+
+			if (!userExists) {
+				res.status(400).json({
+					msg: 'Usuário não encontrado.',
+				})
+				return
+			} else if (!productExists) {
+				res.status(400).json({
+					msg: 'Produto não encontrado.',
+				})
+				return
+			}
+
 			const rating = await RatingModel.findByIdAndUpdate(id, req.body, {
 				new: true,
 			}).populate('userId productId')

@@ -132,16 +132,33 @@ const ShoppingCartController = {
 			const shoppingCart = await ShoppingCartModel.findById(id)
 
 			if (!shoppingCart) {
-				res.status(404).json({
+				return res.status(404).json({
 					msg: 'Carrinho de compras não encontrado.',
 				})
-				return
 			}
 
 			// Verifica se o produto já está no carrinho
 			const existingProduct = shoppingCart.items.find(
 				(item) => item.productId.toString() === productId,
 			)
+
+			// Verifica se os campos userId e productId existem no BD
+			const userExists = await UserModel.exists({
+				_id: shoppingCart.userId,
+			})
+			const productExists = await ProductModel.exists({
+				_id: existingProduct?.productId, // Use o productId do item se existir
+			})
+
+			if (!userExists) {
+				return res.status(400).json({
+					msg: 'Usuário não encontrado.',
+				})
+			} else if (!productExists) {
+				return res.status(400).json({
+					msg: 'Produto não encontrado.',
+				})
+			}
 
 			if (existingProduct) {
 				// Se o produto já estiver no carrinho, atualiza a quantidade
