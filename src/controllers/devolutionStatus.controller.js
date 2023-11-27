@@ -31,8 +31,8 @@ const DevolutionStatusController = {
 		try {
 			const devolutionStatus = await DevolutionStatusModel
 				.find()
-				.populate('userId productId')
 				.lean()
+				.populate('userId productId')
 
 			res.status(200).json({
 				devolutionStatus,
@@ -111,7 +111,6 @@ const DevolutionStatusController = {
 
 			const devolutionStatus = await DevolutionStatusModel
 				.findByIdAndUpdate(id, req.body, { new: true })
-				.populate('userId productId')
 				.lean()
 
 			if (!devolutionStatus) {

@@ -32,9 +32,11 @@ const DeliveryStatusController = {
 
 	getAllDeliveryStatus: async (req, res) => {
 		try {
-			const deliveryStatus = await DeliveryStatusModel.find().populate(
-				'userId productId',
-			)
+			const deliveryStatus = await DeliveryStatusModel
+			.find()
+			.lean()
+			.populate('userId productId')
+			
 			res.status(200).json({
 				deliveryStatus,
 				msg: 'Operação foi concluída com sucesso!',
@@ -47,7 +49,9 @@ const DeliveryStatusController = {
 	getDeliveryStatusById: async (req, res) => {
 		try {
 			const id = req.params.id
-			const deliveryStatus = await DeliveryStatusModel.findById(id)
+			const deliveryStatus = await DeliveryStatusModel
+				.findById(id)
+				.lean()
 				.populate('userId productId')
 
 			if (!deliveryStatus) {
@@ -114,7 +118,7 @@ const DeliveryStatusController = {
 				id,
 				req.body,
 				{ new: true },
-			).populate('userId productId')
+			)
 
 			if (!deliveryStatus) {
 				res.status(404).json({

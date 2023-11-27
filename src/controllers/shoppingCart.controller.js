@@ -56,7 +56,7 @@ const ShoppingCartController = {
 
 	getAllShoppingCart: async (req, res) => {
 		try {
-			const shoppingCart = await ShoppingCartModel.find().populate(
+			const shoppingCart = await ShoppingCartModel.find().lean().populate(
 				'userId items.productId',
 			)
 			res.status(200).json({
@@ -71,7 +71,7 @@ const ShoppingCartController = {
 	getShoppingCartById: async (req, res) => {
 		try {
 			const id = req.params.id
-			const shoppingCart = await ShoppingCartModel.findById(id).populate(
+			const shoppingCart = await ShoppingCartModel.findById(id).lean().populate(
 				'userId cartProducts.productId',
 			)
 

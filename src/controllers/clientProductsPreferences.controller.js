@@ -23,8 +23,11 @@ const ClientPreferencesController = {
 
 	getAllClientPreferences: async (req, res) => {
 		try {
-			const clientPreference = await ClientPreferencesModel.find()
+			const clientPreference = await ClientPreferencesModel
+				.find()
+				.lean()
 				.populate('userId')
+				
 			res.status(200).json({
 				clientPreference,
 				msg: 'Operação concluída com sucesso!',
@@ -37,7 +40,9 @@ const ClientPreferencesController = {
 	getClientPreferencesById: async (req, res) => {
 		try {
 			const id = req.params.id
-			const clientPreference = await ClientPreferencesModel.findById(id)
+			const clientPreference = await ClientPreferencesModel
+				.findById(id)
+				.lean()
 				.populate('userId')
 
 			if (!clientPreference) {
@@ -95,7 +100,7 @@ const ClientPreferencesController = {
 				id,
 				req.body,
 				{ new: true },
-			).populate('userId')
+			)
 			res.status(200).json({
 				clientPreference,
 				msg: 'Operação concluída com sucesso!',

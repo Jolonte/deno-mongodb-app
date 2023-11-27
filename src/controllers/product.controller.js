@@ -12,7 +12,7 @@ const ProductController = {
 
 	getAllProducts: async (req, res) => {
 		try {
-			const products = await ProductModel.find()
+			const products = await ProductModel.find().lean()
 			res.status(200).json({
 				products,
 				msg: 'Operação concluída com sucesso!',
@@ -27,7 +27,8 @@ const ProductController = {
 			const id = req.params.id
 			const product = await ProductModel.findByIdAndUpdate(id, req.body, {
 				new: true,
-			})
+			}).lean()
+			
 			if (!product) {
 				res.status(404).json({ msg: 'Produto não encontrado.' })
 				return
