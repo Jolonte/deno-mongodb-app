@@ -1,21 +1,27 @@
-import mongoose from 'mongoose'
+import mongoose from 'mongoose';
 
-const devolutionSchema = new mongoose.Schema({
-	userId: {
-		type: mongoose.Schema.Types.ObjectId,
-		ref: 'User',
-		required: true,
-	},
-	productId: String,
-	devolutionReason: [
-		{
-			body: String,
-			date: { type: Date, default: Date.now },
-		},
-	],
-	devolutionStatus: String,
-}, { timestamps: true })
+const devolutionStatusSchema = new mongoose.Schema({
+    userId: {
+        type: mongoose.Schema.Types.ObjectId,
+        ref: 'User',
+        required: true,
+    },
+    productId: {
+        type: mongoose.Schema.Types.ObjectId,
+        ref: 'Product',
+        required: true,
+    },
+    devolutionStatus: {
+        type: String,
+        enum: ['Requested', 'Approved', 'Rejected', 'Completed'],
+        default: 'Requested',
+    },
+    devolutionReason: {
+        type: String,
+        required: true
+    },
+}, { timestamps: true });
 
-const DevolutionModel = mongoose.model('Devolution', devolutionSchema)
+const DevolutionStatusModel = mongoose.model('DevolutionStatus', devolutionStatusSchema);
 
-export default DevolutionModel
+export default DevolutionStatusModel;

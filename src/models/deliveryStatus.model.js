@@ -1,14 +1,26 @@
-import mongoose from 'mongoose'
+import mongoose from 'mongoose';
 
-const deliveryStatusSchema = new mongoose.Schema({
-	purchaseId: String,
-	deliveryStatus: String,
-	deliveryTrackingNumber: Number,
-}, { timestamps: true })
+const deliverySchema = new mongoose.Schema({
+    userId: {
+        type: mongoose.Schema.Types.ObjectId,
+        ref: 'User',
+        required: true,
+    },
+    productId: {
+        type: mongoose.Schema.Types.ObjectId,
+        ref: 'Product',
+        required: true,
+    },
+    deliveryStatus: {
+        type: String,
+        enum: ['Processing', 'Shipped', 'Delivered', 'Failed'],
+        default: 'Processing',
+    },
+    deliveryTrackingNumber: {
+        type: Number,
+    },
+}, { timestamps: true });
 
-const DeliveryStatusModel = mongoose.model(
-	'DeliveryStatus',
-	deliveryStatusSchema,
-)
+const DeliveryModel = mongoose.model('Delivery', deliverySchema);
 
-export default DeliveryStatusModel
+export default DeliveryModel;
