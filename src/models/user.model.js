@@ -22,10 +22,10 @@ const userSchema = new mongoose.Schema({
 		type: String,
 		required: true,
 		validate: {
-			validator: (value) => value.length >= 8 && value.length <= 255,
-			message: 'Senha deve ter entre 8 e 255 caracteres',
+		  validator: (value) => /^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[@$!%*?&])[A-Za-z\d@$!%*?&]{8,}$/.test(value),
+		  message: 'Senha deve ter pelo menos 8 caracteres, incluindo pelo menos uma letra maiúscula, uma letra minúscula, um número e um caractere especial.',
 		},
-	},
+	  },
 	cpf: {
 		type: Number,
 		required: true,
