@@ -83,6 +83,7 @@ const ClientPreferencesController = {
 			const id = req.params.id
 			const { userId } = req.body
 
+            // verificar se o usuário existe no BD
 			const userExists = await UserModel.exists({ _id: userId })
 
 			if (!userExists) {
