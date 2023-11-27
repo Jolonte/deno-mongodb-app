@@ -11,7 +11,11 @@ DeliveryStatusRoute
 DeliveryStatusRoute
 	.route('/deliverystatus/:id')
 	.get((req, res) => DeliveryStatusController.getDeliveryStatusById(req, res))
-	.delete((req, res) => DeliveryStatusController.deleteDeliveryStatusById(req, res))
-	.put((req, res) => DeliveryStatusController.updateDeliveryStatusById(req, res))
+	.delete((req, res) =>
+		DeliveryStatusController.deleteDeliveryStatusById(req, res)
+	)
+	.put((req, res) =>
+		DeliveryStatusController.updateDeliveryStatusById(req, res)
+	)
 
 export default DeliveryStatusRoute
