@@ -4,7 +4,14 @@ import * as bcrypt from 'https://deno.land/x/bcrypt@v0.4.1/mod.ts'
 const userSchema = new mongoose.Schema({
 	firstName: { type: String, required: true },
 	lastName: { type: String, required: true },
-	age: { type: Number, required: true },
+	age: {
+		type: Number,
+		required: true,
+		validate: {
+		  validator: (value) => value >= 18,
+		  message: 'A idade mínima deve ser 18 anos.',
+		},
+	  },
 	sex: {
 		type: String,
 		required: true,
@@ -50,6 +57,7 @@ const userSchema = new mongoose.Schema({
 	},
 }, { timestamps: true })
 
+// Hash and salt passwords
 userSchema.pre('save', async function (next) {
 	const salt = await bcrypt.genSalt()
 	this.password = await bcrypt.hash(this.password, salt)
