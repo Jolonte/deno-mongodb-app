@@ -1,4 +1,5 @@
 import mongoose from 'mongoose'
+import * as bcrypt from 'https://deno.land/x/bcrypt@v0.4.1/mod.ts'
 
 const userSchema = new mongoose.Schema({
 	firstName: { type: String, required: true },
@@ -22,10 +23,13 @@ const userSchema = new mongoose.Schema({
 		type: String,
 		required: true,
 		validate: {
-		  validator: (value) => /^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[@$!%*?&])[A-Za-z\d@$!%*?&]{8,}$/.test(value),
-		  message: 'Senha deve ter pelo menos 8 caracteres, incluindo pelo menos uma letra maiúscula, uma letra minúscula, um número e um caractere especial.',
+			validator: (value) =>
+				/^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[@$!%*?&])[A-Za-z\d@$!%*?&]{8,}$/
+					.test(value),
+			message:
+				'Senha deve ter pelo menos 8 caracteres, incluindo pelo menos uma letra maiúscula, uma letra minúscula, um número e um caractere especial.',
 		},
-	  },
+	},
 	cpf: {
 		type: Number,
 		required: true,
@@ -45,6 +49,12 @@ const userSchema = new mongoose.Schema({
 		},
 	},
 }, { timestamps: true })
+
+userSchema.pre('save', async function (next) {
+	const salt = await bcrypt.genSalt()
+	this.password = await bcrypt.hash(this.password, salt)
+	next()
+})
 
 const UserModel = mongoose.model('User', userSchema)
 

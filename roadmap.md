@@ -1,6 +1,5 @@
 - [X] Terminar models restantes
 - [ ] Criptografar senhas e adicionar autenticação JWT
-- [ ] Models, controllers e routes de pagamento
 - [ ] Realizar testes no Postman
 - [ ] Documentar usando o Sweager
 - [ ] Realizar deploy no servidor
