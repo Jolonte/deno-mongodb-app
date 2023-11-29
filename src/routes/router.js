@@ -6,6 +6,7 @@ import ShoppingCartRoute from './shoppingCart.route.js'
 import ClientPreferencesRoute from './clientProductsPreferences.route.js'
 import DeliveryStatusRoute from './deliveryStatus.route.js'
 import DevolutionStatusRoute from './devolutionStatus.route.js'
+import AuthRoute from './auth.route.js'
 
 const router = express.Router()
 
@@ -18,6 +19,7 @@ router.use(
 	ClientPreferencesRoute,
 	DeliveryStatusRoute,
 	DevolutionStatusRoute,
+	AuthRoute,
 )
 
 export default router

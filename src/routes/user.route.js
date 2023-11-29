@@ -5,7 +5,6 @@ const UserRouter = express.Router()
 
 UserRouter
 	.route('/users')
-	.post((req, res) => UserController.createUser(req, res))
 	.get((req, res) => UserController.getAllUsers(req, res))
 
 UserRouter
