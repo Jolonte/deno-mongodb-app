@@ -8,10 +8,10 @@ const userSchema = new mongoose.Schema({
 		type: Number,
 		required: true,
 		validate: {
-		  validator: (value) => value >= 18,
-		  message: 'A idade mínima deve ser 18 anos.',
+			validator: (value) => value >= 18,
+			message: 'A idade mínima deve ser 18 anos.',
 		},
-	  },
+	},
 	sex: {
 		type: String,
 		required: true,
