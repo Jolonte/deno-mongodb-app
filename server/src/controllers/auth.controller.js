@@ -29,7 +29,6 @@ const AuthController = {
 	loginUserByEmailAndPassword: async (req, res) => {
 		try {
 			const { email, password } = req.body
-
 			const user = await UserModel.findOne({ email })
 
 			if (!user) {
@@ -38,8 +37,18 @@ const AuthController = {
 			}
 
 			const auth = await bcrypt.compare(password, user.password)
-
+			
 			if (auth) {
+				const token = await createToken(user._id)
+
+				setCookie(res, {
+					name: 'jwt',
+					value: token,
+					httpOnly: true,
+					secure: true,
+					maxAge: 86400,
+				})
+
 				res.status(200).json({
 					userId: user._id,
 					msg: 'Operação bem sucedida.',
