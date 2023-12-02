@@ -1,18 +1,21 @@
-import 'https://deno.land/std@0.207.0/dotenv/load.ts' // .env
-import mongoConnect from './db/connect.js' // BD connection
-import express from 'express'
+import 'https://deno.land/std@0.207.0/dotenv/load.ts'
+import mongoConnect from './db/connect.js'
 import router from './routes/router.js'
+import express from 'express'
 
 const app = express()
 const PORT = Deno.env.get('SERVER_PORT')
 
-// MongoDB connection
-await mongoConnect()
-
 // Routes
 app.use(express.json())
 app.use(router)
-
-app.listen(PORT, () => {
-	console.log(`Servidor - rodando em http://localhost:${PORT}.`)
-})
+;(async () => {
+	try {
+		await mongoConnect()
+		app.listen(PORT, () => {
+			console.log(`Servidor rodando em http://localhost:${PORT}.`)
+		})
+	} catch (error) {
+		console.log(`Erro ao iniciar servidor ${error.message}`)
+	}
+})()
