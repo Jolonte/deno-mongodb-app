@@ -26,10 +26,9 @@
   "lock": false,
   "nodeModulesDir": true,
   "tasks": {
-    "format": "deno fmt",
-    "lint": "deno lint",
+    "style": "deno fmt && deno lint",
     "watch": "deno run --watch --allow-read --allow-env --allow-sys --allow-net src/app.js",
-    "start": "deno task format && deno task lint && deno task watch"
+    "start": "deno fmt && deno lint && deno task watch"
   },
   "imports": {
     "mongoose": "npm:mongoose@8.0.1",
