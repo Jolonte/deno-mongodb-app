@@ -3,4 +3,3 @@
 - [ ] Realizar testes no Postman
 - [ ] Documentar usando o Sweager
 - [ ] Realizar deploy no servidor
-- [ ] Entregar ao cliente
