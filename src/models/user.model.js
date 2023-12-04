@@ -1,5 +1,5 @@
 import mongoose from 'mongoose'
-import * as bcrypt from 'https://deno.land/x/bcrypt@v0.4.1/mod.ts'
+import * as bcrypt from "https://deno.land/x/bcrypt@v0.3.0/mod.ts";
 
 const userSchema = new mongoose.Schema({
 	firstName: { type: String, required: true },
