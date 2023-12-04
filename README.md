@@ -2,17 +2,20 @@
 
 A documentação a seguir descreve os endpoints da sua API usando o estilo Swagger. Além disso, são fornecidos exemplos de como utilizar cada endpoint em JavaScript utilizando a Fetch API.
 
+### Observações:
+- Os exemplos de uso em JavaScript utilizam a Fetch API; adapte conforme necessário para o ambiente ou biblioteca que estiver utilizando.
+
 ### Recurso: Usuários
 
 #### 1. Listar Todos os Usuários
 
-**Endpoint:** `GET /api/users`
+**Endpoint:** `GET https://renovalaces.deno.dev/users`
 
 **Descrição:** Retorna a lista de todos os usuários cadastrados.
 
 **Exemplo de Uso (JavaScript com Fetch API):**
 ```javascript
-fetch('/api/users')
+fetch('https://renovalaces.deno.dev/users')
   .then(response => response.json())
   .then(users => console.log(users))
   .catch(error => console.error(error));
@@ -20,7 +23,7 @@ fetch('/api/users')
 
 #### 2. Obter Usuário por ID
 
-**Endpoint:** `GET /api/users/:id`
+**Endpoint:** `GET https://renovalaces.deno.dev/users/:id`
 
 **Descrição:** Retorna as informações de um usuário específico com base no ID fornecido.
 
@@ -28,7 +31,7 @@ fetch('/api/users')
 ```javascript
 const userId = '5f5ebe5e7c9e3a2a74a60b27'; // Substitua pelo ID desejado
 
-fetch(`/api/users/${userId}`)
+fetch(`https://renovalaces.deno.dev/users/${userId}`)
   .then(response => response.json())
   .then(user => console.log(user))
   .catch(error => console.error(error));
@@ -36,7 +39,7 @@ fetch(`/api/users/${userId}`)
 
 #### 3. Deletar Usuário por ID
 
-**Endpoint:** `DELETE /api/users/:id`
+**Endpoint:** `DELETE https://renovalaces.deno.dev/users/:id`
 
 **Descrição:** Deleta um usuário com base no ID fornecido.
 
@@ -44,7 +47,7 @@ fetch(`/api/users/${userId}`)
 ```javascript
 const userIdToDelete = '5f5ebe5e7c9e3a2a74a60b27'; // Substitua pelo ID desejado
 
-fetch(`/api/users/${userIdToDelete}`, { method: 'DELETE' })
+fetch(`https://renovalaces.deno.dev/users/${userIdToDelete}`, { method: 'DELETE' })
   .then(response => response.json())
   .then(result => console.log(result))
   .catch(error => console.error(error));
@@ -52,7 +55,7 @@ fetch(`/api/users/${userIdToDelete}`, { method: 'DELETE' })
 
 #### 4. Atualizar Usuário por ID
 
-**Endpoint:** `PUT /api/users/:id`
+**Endpoint:** `PUT https://renovalaces.deno.dev/users/:id`
 
 **Descrição:** Atualiza as informações de um usuário com base no ID fornecido.
 
@@ -67,7 +70,7 @@ const updatedUserData = {
   // ... outras propriedades a serem atualizadas
 };
 
-fetch(`/api/users/${userIdToUpdate}`, {
+fetch(`https://renovalaces.deno.dev/users/${userIdToUpdate}`, {
   method: 'PUT',
   headers: {
     'Content-Type': 'application/json',
@@ -79,16 +82,11 @@ fetch(`/api/users/${userIdToUpdate}`, {
   .catch(error => console.error(error));
 ```
 
-### Observações:
-- Certifique-se de substituir os placeholders (`:id`, etc.) pelos valores reais ao fazer as chamadas à API.
-- Os exemplos de uso em JavaScript utilizam a Fetch API, você pode adaptá-los conforme necessário para o ambiente ou biblioteca que estiver utilizando.
-- Esta documentação é uma representação simplificada e pode ser expandida conforme necessário para incluir detalhes adicionais sobre os parâmetros, códigos de resposta, etc.
-
 ### Recurso: Carrinho de Compras
 
 #### 1. Adicionar ao Carrinho de Compras
 
-**Endpoint:** `POST /api/shoppingcart`
+**Endpoint:** `POST https://renovalaces.deno.dev/shoppingcart`
 
 **Descrição:** Adiciona itens ao carrinho de compras de um usuário.
 
@@ -106,7 +104,7 @@ const cartData = {
   ],
 };
 
-fetch('/api/shoppingcart', {
+fetch('https://renovalaces.deno.dev/shoppingcart', {
   method: 'POST',
   headers: {
     'Content-Type': 'application/json',
@@ -120,13 +118,13 @@ fetch('/api/shoppingcart', {
 
 #### 2. Obter Todos os Carrinhos de Compras
 
-**Endpoint:** `GET /api/shoppingcart`
+**Endpoint:** `GET https://renovalaces.deno.dev/shoppingcart`
 
 **Descrição:** Retorna a lista de todos os carrinhos de compras com detalhes de usuário e produtos.
 
 **Exemplo de Uso (JavaScript com Fetch API):**
 ```javascript
-fetch('/api/shoppingcart')
+fetch('https://renovalaces.deno.dev/shoppingcart')
   .then(response => response.json())
   .then(shoppingCarts => console.log(shoppingCarts))
   .catch(error => console.error(error));
@@ -134,7 +132,7 @@ fetch('/api/shoppingcart')
 
 #### 3. Obter Carrinho de Compras por ID
 
-**Endpoint:** `GET /api/shoppingcart/:id`
+**Endpoint:** `GET https://renovalaces.deno.dev/shoppingcart/:id`
 
 **Descrição:** Retorna as informações detalhadas de um carrinho de compras com base no ID fornecido.
 
@@ -142,7 +140,7 @@ fetch('/api/shoppingcart')
 ```javascript
 const cartId = '5f5ebe5e7c9e3a2a74a60b29'; // Substitua pelo ID do carrinho
 
-fetch(`/api/shoppingcart/${cartId}`)
+fetch(`https://renovalaces.deno.dev/shoppingcart/${cartId}`)
   .then(response => response.json())
   .then(shoppingCart => console.log(shoppingCart))
   .catch(error => console.error(error));
@@ -150,7 +148,7 @@ fetch(`/api/shoppingcart/${cartId}`)
 
 #### 4. Deletar Carrinho de Compras por ID
 
-**Endpoint:** `DELETE /api/shoppingcart/:id`
+**Endpoint:** `DELETE https://renovalaces.deno.dev/shoppingcart/:id`
 
 **Descrição:** Deleta um carrinho de compras com base no ID fornecido, retornando os itens ao estoque.
 
@@ -158,7 +156,7 @@ fetch(`/api/shoppingcart/${cartId}`)
 ```javascript
 const cartIdToDelete = '5f5ebe5e7c9e3a2a74a60b29'; // Substitua pelo ID do carrinho
 
-fetch(`/api/shoppingcart/${cartIdToDelete}`, { method: 'DELETE' })
+fetch(`https://renovalaces.deno.dev/shoppingcart/${cartIdToDelete}`, { method: 'DELETE' })
   .then(response => response.json())
   .then(result => console.log(result))
   .catch(error => console.error(error));
@@ -166,7 +164,7 @@ fetch(`/api/shoppingcart/${cartIdToDelete}`, { method: 'DELETE' })
 
 #### 5. Atualizar Carrinho de Compras por ID
 
-**Endpoint:** `PUT /api/shoppingcart/:id`
+**Endpoint:** `PUT https://renovalaces.deno.dev/shoppingcart/:id`
 
 **Descrição:** Atualiza a quantidade de itens no carrinho de compras com base no ID fornecido.
 
@@ -179,7 +177,7 @@ fetch(`/api/shoppingcart/${cartIdToDelete}`, { method: 'DELETE' })
 const cartIdToUpdate = '5f5ebe5e7c9e3a2a74a60b29'; // Substitua pelo ID do carrinho
 const updateData = { productId: '5f5ebe5e7c9e3a2a74a60b28', quantity: 3 }; // Substitua pelos dados desejados
 
-fetch(`/api/shoppingcart/${cartIdToUpdate}`, {
+fetch(`https://renovalaces.deno.dev/shoppingcart/${cartIdToUpdate}`, {
   method: 'PUT',
   headers: {
     'Content-Type': 'application/json',
@@ -191,16 +189,11 @@ fetch(`/api/shoppingcart/${cartIdToUpdate}`, {
   .catch(error => console.error(error));
 ```
 
-### Observações:
-- Certifique-se de substituir os placeholders (`:id`, etc.) pelos valores reais ao fazer as chamadas à API.
-- Os exemplos de uso em JavaScript utilizam a Fetch API, você pode adaptá-los conforme necessário para o ambiente ou biblioteca que estiver utilizando.
-- Esta documentação é uma representação simplificada e pode ser expandida conforme necessário para incluir detalhes adicionais sobre os parâmetros, códigos de resposta, etc.
-
 ### Recurso: Avaliações
 
 #### 1. Adicionar Avaliação
 
-**Endpoint:** `POST /api/ratings`
+**Endpoint:** `POST https://renovalaces.deno.dev/ratings`
 
 **Descrição:** Adiciona uma avaliação para um produto feita por um usuário.
 
@@ -222,7 +215,7 @@ const ratingData = {
   ],
 };
 
-fetch('/api/ratings', {
+fetch('https://renovalaces.deno.dev/ratings', {
   method: 'POST',
   headers: {
     'Content-Type': 'application/json',
@@ -236,13 +229,13 @@ fetch('/api/ratings', {
 
 #### 2. Obter Todas as Avaliações
 
-**Endpoint:** `GET /api/ratings`
+**Endpoint:** `GET https://renovalaces.deno.dev/ratings`
 
 **Descrição:** Retorna a lista de todas as avaliações com detalhes de usuário e produto.
 
 **Exemplo de Uso (JavaScript com Fetch API):**
 ```javascript
-fetch('/api/ratings')
+fetch('https://renovalaces.deno.dev/ratings')
   .then(response => response.json())
   .then(ratings => console.log(ratings))
   .catch(error => console.error(error));
@@ -250,7 +243,7 @@ fetch('/api/ratings')
 
 #### 3. Obter Avaliação por ID
 
-**Endpoint:** `GET /api/ratings/:id`
+**Endpoint:** `GET https://renovalaces.deno.dev/ratings/:id`
 
 **Descrição:** Retorna as informações detalhadas de uma avaliação com base no ID fornecido.
 
@@ -258,7 +251,7 @@ fetch('/api/ratings')
 ```javascript
 const ratingId = '5f5ebe5e7c9e3a2a74a60b29'; // Substitua pelo ID da avaliação
 
-fetch(`/api/ratings/${ratingId}`)
+fetch(`https://renovalaces.deno.dev/ratings/${ratingId}`)
   .then(response => response.json())
   .then(rating => console.log(rating))
   .catch(error => console.error(error));
@@ -266,7 +259,7 @@ fetch(`/api/ratings/${ratingId}`)
 
 #### 4. Deletar Avaliação por ID
 
-**Endpoint:** `DELETE /api/ratings/:id`
+**Endpoint:** `DELETE https://renovalaces.deno.dev/ratings/:id`
 
 **Descrição:** Deleta uma avaliação com base no ID fornecido.
 
@@ -274,7 +267,7 @@ fetch(`/api/ratings/${ratingId}`)
 ```javascript
 const ratingIdToDelete = '5f5ebe5e7c9e3a2a74a60b29'; // Substitua pelo ID da avaliação
 
-fetch(`/api/ratings/${ratingIdToDelete}`, { method: 'DELETE' })
+fetch(`https://renovalaces.deno.dev/ratings/${ratingIdToDelete}`, { method: 'DELETE' })
   .then(response => response.json())
   .then(result => console.log(result))
   .catch(error => console.error(error));
@@ -282,7 +275,7 @@ fetch(`/api/ratings/${ratingIdToDelete}`, { method: 'DELETE' })
 
 #### 5. Atualizar Avaliação por ID
 
-**Endpoint:** `PUT /api/ratings/:id`
+**Endpoint:** `PUT https://renovalaces.deno.dev/ratings/:id`
 
 **Descrição:** Atualiza uma avaliação com base no ID fornecido.
 
@@ -305,7 +298,7 @@ const updateData = {
   ],
 };
 
-fetch(`/api/ratings/${ratingIdToUpdate}`, {
+fetch(`https://renovalaces.deno.dev/ratings/${ratingIdToUpdate}`, {
   method: 'PUT',
   headers: {
     'Content-Type': 'application/json',
@@ -317,16 +310,11 @@ fetch(`/api/ratings/${ratingIdToUpdate}`, {
   .catch(error => console.error(error));
 ```
 
-### Observações:
-- Certifique-se de substituir os placeholders (`:id`, etc.) pelos valores reais ao fazer as chamadas à API.
-- Os exemplos de uso em JavaScript utilizam a Fetch API, você pode adaptá-los conforme necessário para o ambiente ou biblioteca que estiver utilizando.
-- Esta documentação é uma representação simplificada e pode ser expandida conforme necessário para incluir detalhes adicionais sobre os parâmetros, códigos de resposta, etc.
-
 ### Recurso: Produtos
 
 #### 1. Criar Produto
 
-**Endpoint:** `POST /api/products`
+**Endpoint:** `POST https://renovalaces.deno.dev/products`
 
 **Descrição:** Cria um novo produto.
 
@@ -349,7 +337,7 @@ const productData = {
   productModel: 'Modelo A',
 };
 
-fetch('/api/products', {
+fetch('https://renovalaces.deno.dev/products', {
   method: 'POST',
   headers: {
     'Content-Type': 'application/json',
@@ -363,13 +351,13 @@ fetch('/api/products', {
 
 #### 2. Obter Todos os Produtos
 
-**Endpoint:** `GET /api/products`
+**Endpoint:** `GET https://renovalaces.deno.dev/products`
 
 **Descrição:** Retorna a lista de todos os produtos.
 
 **Exemplo de Uso (JavaScript com Fetch API):**
 ```javascript
-fetch('/api/products')
+fetch('https://renovalaces.deno.dev/products')
   .then(response => response.json())
   .then(products => console.log(products))
   .catch(error => console.error(error));
@@ -377,7 +365,7 @@ fetch('/api/products')
 
 #### 3. Obter Produto por ID
 
-**Endpoint:** `GET /api/products/:id`
+**Endpoint:** `GET https://renovalaces.deno.dev/products/:id`
 
 **Descrição:** Retorna as informações detalhadas de um produto com base no ID fornecido.
 
@@ -385,7 +373,7 @@ fetch('/api/products')
 ```javascript
 const productId = '5f5ebe5e7c9e3a2a74a60b28'; // Substitua pelo ID do produto
 
-fetch(`/api/products/${productId}`)
+fetch(`https://renovalaces.deno.dev/products/${productId}`)
   .then(response => response.json())
   .then(product => console.log(product))
   .catch(error => console.error(error));
@@ -393,7 +381,7 @@ fetch(`/api/products/${productId}`)
 
 #### 4. Deletar Produto por ID
 
-**Endpoint:** `DELETE /api/products/:id`
+**Endpoint:** `DELETE https://renovalaces.deno.dev/products/:id`
 
 **Descrição:** Deleta um produto com base no ID fornecido.
 
@@ -401,7 +389,7 @@ fetch(`/api/products/${productId}`)
 ```javascript
 const productIdToDelete = '5f5ebe5e7c9e3a2a74a60b28'; // Substitua pelo ID do produto
 
-fetch(`/api/products/${productIdToDelete}`, { method: 'DELETE' })
+fetch(`https://renovalaces.deno.dev/products/${productIdToDelete}`, { method: 'DELETE' })
   .then(response => response.json())
   .then(result => console.log(result))
   .catch(error => console.error(error));
@@ -409,7 +397,7 @@ fetch(`/api/products/${productIdToDelete}`, { method: 'DELETE' })
 
 #### 5. Atualizar Produto por ID
 
-**Endpoint:** `PUT /api/products/:id`
+**Endpoint:** `PUT https://renovalaces.deno.dev/products/:id`
 
 **Descrição:** Atualiza as informações de um produto com base no ID fornecido.
 
@@ -433,7 +421,7 @@ const updateData = {
   productModel: 'Modelo B',
 };
 
-fetch(`/api/products/${productIdToUpdate}`, {
+fetch(`https://renovalaces.deno.dev/products/${productIdToUpdate}`, {
   method: 'PUT',
   headers: {
     'Content-Type': 'application/json',
@@ -445,16 +433,11 @@ fetch(`/api/products/${productIdToUpdate}`, {
   .catch(error => console.error(error));
 ```
 
-### Observações:
-- Certifique-se de substituir os placeholders (`:id`, etc.) pelos valores reais ao fazer as chamadas à API.
-- Os exemplos de uso em JavaScript utilizam a Fetch API, você pode adaptá-los conforme necessário para o ambiente ou biblioteca que estiver utilizando.
-- Esta documentação é uma representação simplificada e pode ser expandida conforme necessário para incluir detalhes adicionais sobre os parâmetros, códigos de resposta, etc.
-
 ### Recurso: Status de Devolução
 
 #### 1. Criar Status de Devolução
 
-**Endpoint:** `POST /api/devolutionstatus`
+**Endpoint:** `POST https://renovalaces.deno.dev/devolutionstatus`
 
 **Descrição:** Cria um novo status de devolução.
 
@@ -472,7 +455,7 @@ const devolutionData = {
   devolutionReason: 'Produto com defeito',
 };
 
-fetch('/api/devolutionstatus', {
+fetch('https://renovalaces.deno.dev/devolutionstatus', {
   method: 'POST',
   headers: {
     'Content-Type': 'application/json',
@@ -486,13 +469,13 @@ fetch('/api/devolutionstatus', {
 
 #### 2. Obter Todos os Status de Devolução
 
-**Endpoint:** `GET /api/devolutionstatus`
+**Endpoint:** `GET https://renovalaces.deno.dev/devolutionstatus`
 
 **Descrição:** Retorna a lista de todos os status de devolução.
 
 **Exemplo de Uso (JavaScript com Fetch API):**
 ```javascript
-fetch('/api/devolutionstatus')
+fetch('https://renovalaces.deno.dev/devolutionstatus')
   .then(response => response.json())
   .then(devolutionstatusList => console.log(devolutionstatusList))
   .catch(error => console.error(error));
@@ -500,7 +483,7 @@ fetch('/api/devolutionstatus')
 
 #### 3. Obter Status de Devolução por ID
 
-**Endpoint:** `GET /api/devolutionstatus/:id`
+**Endpoint:** `GET https://renovalaces.deno.dev/devolutionstatus/:id`
 
 **Descrição:** Retorna as informações detalhadas de um status de devolução com base no ID fornecido.
 
@@ -508,7 +491,7 @@ fetch('/api/devolutionstatus')
 ```javascript
 const devolutionstatusId = '5f5ebe5e7c9e3a2a74a60b2a'; // Substitua pelo ID do status de devolução
 
-fetch(`/api/devolutionstatus/${devolutionstatusId}`)
+fetch(`https://renovalaces.deno.dev/devolutionstatus/${devolutionstatusId}`)
   .then(response => response.json())
   .then(devolutionstatus => console.log(devolutionstatus))
   .catch(error => console.error(error));
@@ -516,7 +499,7 @@ fetch(`/api/devolutionstatus/${devolutionstatusId}`)
 
 #### 4. Deletar Status de Devolução por ID
 
-**Endpoint:** `DELETE /api/devolutionstatus/:id`
+**Endpoint:** `DELETE https://renovalaces.deno.dev/devolutionstatus/:id`
 
 **Descrição:** Deleta um status de devolução com base no ID fornecido.
 
@@ -524,7 +507,7 @@ fetch(`/api/devolutionstatus/${devolutionstatusId}`)
 ```javascript
 const devolutionstatusIdToDelete = '5f5ebe5e7c9e3a2a74a60b2a'; // Substitua pelo ID do status de devolução
 
-fetch(`/api/devolutionstatus/${devolutionstatusIdToDelete}`, { method: 'DELETE' })
+fetch(`https://renovalaces.deno.dev/devolutionstatus/${devolutionstatusIdToDelete}`, { method: 'DELETE' })
   .then(response => response.json())
   .then(result => console.log(result))
   .catch(error => console.error(error));
@@ -532,7 +515,7 @@ fetch(`/api/devolutionstatus/${devolutionstatusIdToDelete}`, { method: 'DELETE' 
 
 #### 5. Atualizar Status de Devolução por ID
 
-**Endpoint:** `PUT /api/devolutionstatus/:id`
+**Endpoint:** `PUT https://renovalaces.deno.dev/devolutionstatus/:id`
 
 **Descrição:** Atualiza as informações de um status de devolução com base no ID fornecido.
 
@@ -552,7 +535,7 @@ const updateData = {
   devolutionReason: 'Produto errado',
 };
 
-fetch(`/api/devolutionstatus/${devolutionstatusIdToUpdate}`, {
+fetch(`https://renovalaces.deno.dev/devolutionstatus/${devolutionstatusIdToUpdate}`, {
   method: 'PUT',
   headers: {
     'Content-Type': 'application/json',
@@ -564,16 +547,11 @@ fetch(`/api/devolutionstatus/${devolutionstatusIdToUpdate}`, {
   .catch(error => console.error(error));
 ```
 
-### Observações:
-- Certifique-se de substituir os placeholders (`:id`, etc.) pelos valores reais ao fazer as chamadas à API.
-- Os exemplos de uso em JavaScript utilizam a Fetch API, você pode adaptá-los conforme necessário para o ambiente ou biblioteca que estiver utilizando.
-- Esta documentação é uma representação simplificada e pode ser expandida conforme necessário para incluir detalhes adicionais sobre os parâmetros, códigos de resposta, etc.
-
 ### Recurso: Status de Entrega
 
 #### 1. Criar Status de Entrega
 
-**Endpoint:** `POST /api/deliverystatus`
+**Endpoint:** `POST https://renovalaces.deno.dev/deliverystatus`
 
 **Descrição:** Cria um novo status de entrega.
 
@@ -591,7 +569,7 @@ const deliveryStatusData = {
   deliveryTrackingNumber: 123456, // Substitua pelo número real de rastreamento (opcional)
 };
 
-fetch('/api/deliverystatus', {
+fetch('https://renovalaces.deno.dev/deliverystatus', {
   method: 'POST',
   headers: {
     'Content-Type': 'application/json',
@@ -605,13 +583,13 @@ fetch('/api/deliverystatus', {
 
 #### 2. Obter Todos os Status de Entrega
 
-**Endpoint:** `GET /api/deliverystatus`
+**Endpoint:** `GET https://renovalaces.deno.dev/deliverystatus`
 
 **Descrição:** Retorna a lista de todos os status de entrega.
 
 **Exemplo de Uso (JavaScript com Fetch API):**
 ```javascript
-fetch('/api/deliverystatus')
+fetch('https://renovalaces.deno.dev/deliverystatus')
   .then(response => response.json())
   .then(deliveryStatusList => console.log(deliveryStatusList))
   .catch(error => console.error(error));
@@ -619,7 +597,7 @@ fetch('/api/deliverystatus')
 
 #### 3. Obter Status de Entrega por ID
 
-**Endpoint:** `GET /api/deliverystatus/:id`
+**Endpoint:** `GET https://renovalaces.deno.dev/deliverystatus/:id`
 
 **Descrição:** Retorna as informações detalhadas de um status de entrega com base no ID fornecido.
 
@@ -627,7 +605,7 @@ fetch('/api/deliverystatus')
 ```javascript
 const deliveryStatusId = '5f5ebe5e7c9e3a2a74a60b2a'; // Substitua pelo ID do status de entrega
 
-fetch(`/api/deliverystatus/${deliveryStatusId}`)
+fetch(`https://renovalaces.deno.dev/deliverystatus/${deliveryStatusId}`)
   .then(response => response.json())
   .then(deliveryStatus => console.log(deliveryStatus))
   .catch(error => console.error(error));
@@ -635,7 +613,7 @@ fetch(`/api/deliverystatus/${deliveryStatusId}`)
 
 #### 4. Deletar Status de Entrega por ID
 
-**Endpoint:** `DELETE /api/deliverystatus/:id`
+**Endpoint:** `DELETE https://renovalaces.deno.dev/deliverystatus/:id`
 
 **Descrição:** Deleta um status de entrega com base no ID fornecido.
 
@@ -643,7 +621,7 @@ fetch(`/api/deliverystatus/${deliveryStatusId}`)
 ```javascript
 const deliveryStatusIdToDelete = '5f5ebe5e7c9e3a2a74a60b2a'; // Substitua pelo ID do status de entrega
 
-fetch(`/api/deliverystatus/${deliveryStatusIdToDelete}`, { method: 'DELETE' })
+fetch(`https://renovalaces.deno.dev/deliverystatus/${deliveryStatusIdToDelete}`, { method: 'DELETE' })
   .then(response => response.json())
   .then(result => console.log(result))
   .catch(error => console.error(error));
@@ -651,7 +629,7 @@ fetch(`/api/deliverystatus/${deliveryStatusIdToDelete}`, { method: 'DELETE' })
 
 #### 5. Atualizar Status de Entrega por ID
 
-**Endpoint:** `PUT /api/deliverystatus/:id`
+**Endpoint:** `PUT https://renovalaces.deno.dev/deliverystatus/:id`
 
 **Descrição:** Atualiza as informações de um status de entrega com base no ID fornecido.
 
@@ -671,7 +649,7 @@ const updateData = {
   deliveryTrackingNumber: 654321, // Substitua pelo novo número real de rastreamento
 };
 
-fetch(`/api/deliverystatus/${deliveryStatusIdToUpdate}`, {
+fetch(`https://renovalaces.deno.dev/deliverystatus/${deliveryStatusIdToUpdate}`, {
   method: 'PUT',
   headers: {
     'Content-Type': 'application/json',
@@ -683,16 +661,11 @@ fetch(`/api/deliverystatus/${deliveryStatusIdToUpdate}`, {
   .catch(error => console.error(error));
 ```
 
-### Observações:
-- Certifique-se de substituir os placeholders (`:id`, etc.) pelos valores reais ao fazer as chamadas à API.
-- Os exemplos de uso em JavaScript utilizam a Fetch API, você pode adaptá-los conforme necessário para o ambiente ou biblioteca que estiver utilizando.
-- Esta documentação é uma representação simplificada e pode ser expandida conforme necessário para incluir detalhes adicionais sobre os parâmetros, códigos de resposta, etc.
-
 ### Recurso: Preferências do Cliente
 
 #### 1. Adicionar às Preferências do Cliente
 
-**Endpoint:** `POST /api/clientpreferences`
+**Endpoint:** `POST https://renovalaces.deno.dev/clientpreferences`
 
 **Descrição:** Adiciona um novo conjunto de preferências para um cliente.
 
@@ -712,7 +685,7 @@ const clientPreferencesData = {
   ],
 };
 
-fetch('/api/clientpreferences', {
+fetch('https://renovalaces.deno.dev/clientpreferences', {
   method: 'POST',
   headers: {
     'Content-Type': 'application/json',
@@ -726,13 +699,13 @@ fetch('/api/clientpreferences', {
 
 #### 2. Obter Todas as Preferências do Cliente
 
-**Endpoint:** `GET /api/clientpreferences`
+**Endpoint:** `GET https://renovalaces.deno.dev/clientpreferences`
 
 **Descrição:** Retorna a lista de todas as preferências dos clientes.
 
 **Exemplo de Uso (JavaScript com Fetch API):**
 ```javascript
-fetch('/api/clientpreferences')
+fetch('https://renovalaces.deno.dev/clientpreferences')
   .then(response => response.json())
   .then(clientPreferencesList => console.log(clientPreferencesList))
   .catch(error => console.error(error));
@@ -740,7 +713,7 @@ fetch('/api/clientpreferences')
 
 #### 3. Obter Preferências do Cliente por ID
 
-**Endpoint:** `GET /api/clientpreferences/:id`
+**Endpoint:** `GET https://renovalaces.deno.dev/clientpreferences/:id`
 
 **Descrição:** Retorna as informações detalhadas das preferências de um cliente com base no ID fornecido.
 
@@ -748,7 +721,7 @@ fetch('/api/clientpreferences')
 ```javascript
 const clientPreferencesId = '5f5ebe5e7c9e3a2a74a60b2a'; // Substitua pelo ID das preferências do cliente
 
-fetch(`/api/clientpreferences/${clientPreferencesId}`)
+fetch(`https://renovalaces.deno.dev/clientpreferences/${clientPreferencesId}`)
   .then(response => response.json())
   .then(clientPreferences => console.log(clientPreferences))
   .catch(error => console.error(error));
@@ -756,7 +729,7 @@ fetch(`/api/clientpreferences/${clientPreferencesId}`)
 
 #### 4. Deletar Preferências do Cliente por ID
 
-**Endpoint:** `DELETE /api/clientpreferences/:id`
+**Endpoint:** `DELETE https://renovalaces.deno.dev/clientpreferences/:id`
 
 **Descrição:** Deleta as preferências de um cliente com base no ID fornecido.
 
@@ -764,7 +737,7 @@ fetch(`/api/clientpreferences/${clientPreferencesId}`)
 ```javascript
 const clientPreferencesIdToDelete = '5f5ebe5e7c9e3a2a74a60b2a'; // Substitua pelo ID das preferências do cliente
 
-fetch(`/api/clientpreferences/${clientPreferencesIdToDelete}`, { method: 'DELETE' })
+fetch(`https://renovalaces.deno.dev/clientpreferences/${clientPreferencesIdToDelete}`, { method: 'DELETE' })
   .then(response => response.json())
   .then(result => console.log(result))
   .catch(error => console.error(error));
@@ -772,7 +745,7 @@ fetch(`/api/clientpreferences/${clientPreferencesIdToDelete}`, { method: 'DELETE
 
 #### 5. Atualizar Preferências do Cliente por ID
 
-**Endpoint:** `PUT /api/clientpreferences/:id`
+**Endpoint:** `PUT https://renovalaces.deno.dev/clientpreferences/:id`
 
 **Descrição:** Atualiza as informações das preferências de um cliente com base no ID fornecido.
 
@@ -793,7 +766,7 @@ const updateData = {
   ],
 };
 
-fetch(`/api/clientpreferences/${clientPreferencesIdToUpdate}`, {
+fetch(`https://renovalaces.deno.dev/clientpreferences/${clientPreferencesIdToUpdate}`, {
   method: 'PUT',
   headers: {
     'Content-Type': 'application/json',
@@ -812,7 +785,7 @@ fetch(`/api/clientpreferences/${clientPreferencesIdToUpdate}`, {
   
 ### 1. Criar Usuário
 
-**Endpoint:** `POST /api/singup`
+**Endpoint:** `POST https://renovalaces.deno.dev/singup`
 
 **Descrição:** Cria um novo usuário.
 
@@ -841,7 +814,7 @@ const userData = {
   cep: '12345-678',
 };
 
-fetch('/api/users', {
+fetch('https://renovalaces.deno.dev/users', {
   method: 'POST',
   headers: {
     'Content-Type': 'application/json',
@@ -855,7 +828,7 @@ fetch('/api/users', {
 
 ### 2. Login do Usuário por E-mail e Senha
 
-**Endpoint:** `POST /api/auth/login`
+**Endpoint:** `POST https://renovalaces.deno.dev/login`
 
 **Descrição:** Autentica um usuário com base no e-mail e senha fornecidos.
 
@@ -870,7 +843,7 @@ const loginData = {
   password: 'password123',
 };
 
-fetch('/api/auth/login', {
+fetch('https://renovalaces.deno.dev/login', {
   method: 'POST',
   headers: {
     'Content-Type': 'application/json',
@@ -884,7 +857,7 @@ fetch('/api/auth/login', {
 
 ### 3. Logout do Usuário por ID
 
-**Endpoint:** `POST /api/auth/logout`
+**Endpoint:** `POST https://renovalaces.deno.dev/logout`
 
 **Descrição:** Desconecta um usuário com base no ID fornecido.
 
@@ -895,7 +868,7 @@ fetch('/api/auth/login', {
 ```javascript
 const userId = '5f5ebe5e7c9e3a2a74a60b29'; // Substitua pelo ID do usuário
 
-fetch('/api/auth/logout', {
+fetch('https://renovalaces.deno.dev/logout', {
   method: 'POST',
   headers: {
     'Content-Type': 'application/json',
@@ -906,8 +879,3 @@ fetch('/api/auth/logout', {
   .then(result => console.log(result))
   .catch(error => console.error(error));
 ```
-
-### Observações:
-- Certifique-se de substituir os placeholders (`/api`, `:id`, etc.) pelos valores reais ao fazer as chamadas à API.
-- Os exemplos de uso em JavaScript utilizam a Fetch API; adapte conforme necessário para o ambiente ou biblioteca que estiver utilizando.
-- Esta documentação é uma representação simplificada e pode ser expandida conforme necessário para incluir detalhes adicionais sobre os parâmetros, códigos de resposta, etc.
