@@ -4,7 +4,7 @@ import router from './routes/router.js'
 import express from 'express'
 
 const app = express()
-const PORT = Deno.env.get('SERVER_PORT')
+const PORT = 3000
 
 // Routes
 app.use(express.json())
