@@ -1,5 +1,5 @@
 import UserModel from '../models/user.model.js'
-import createToken from '../utils/apiKey.utils.js'
+import createToken from '../utils/createToken.utils.js'
 import * as bcrypt from 'https://deno.land/x/bcrypt@v0.4.1/mod.ts'
 import { setCookie } from 'https://deno.land/std@0.208.0/http/cookie.ts'
 
@@ -37,7 +37,7 @@ const AuthController = {
 			}
 
 			const auth = await bcrypt.compare(password, user.password)
-			
+
 			if (auth) {
 				const token = await createToken(user._id)
 
