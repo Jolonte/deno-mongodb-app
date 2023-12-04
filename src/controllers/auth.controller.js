@@ -1,5 +1,5 @@
 import UserModel from '../models/user.model.js'
-import * as bcrypt from "https://deno.land/x/bcrypt@v0.3.0/mod.ts";
+// import * as bcrypt from 'https://deno.land/x/bcrypt@v0.3.0/mod.ts'
 
 const AuthController = {
 	singInUser: async (req, res) => {
@@ -31,7 +31,7 @@ const AuthController = {
 
 	loginUserByEmailAndPassword: async (req, res) => {
 		try {
-			const { email, password } = req.body
+			const { email } = req.body
 			const user = await UserModel.findOne({ email })
 
 			if (!user) {
@@ -39,20 +39,29 @@ const AuthController = {
 				return
 			}
 
-			const auth = await bcrypt.compare(password, user.password)
+			// const auth = await bcrypt.compare(password, user.password)
 
-			if (auth) {
-				await UserModel.findByIdAndUpdate(user, { auth: true }, {
-					new: true,
-				})
+			// if (auth) {
+			// 	await UserModel.findByIdAndUpdate(user, { auth: true }, {
+			// 		new: true,
+			// 	})
 
-				res.status(200).json({
-					userId: user._id,
-					msg: 'Operação bem sucedida.',
-				})
-			} else {
-				res.status(500).json({ msg: 'Senha incorreta.' })
-			}
+			// 	res.status(200).json({
+			// 		userId: user._id,
+			// 		msg: 'Operação bem sucedida.',
+			// 	})
+			// } else {
+			// 	res.status(500).json({ msg: 'Senha incorreta.' })
+			// }
+
+			await UserModel.findByIdAndUpdate(user, { auth: true }, {
+				new: true,
+			})
+
+			res.status(200).json({
+				userId: user._id,
+				msg: 'Operação bem sucedida.',
+			})
 		} catch (error) {
 			console.error('Error in loginUserByEmailAndPassword:', error)
 			res.status(400).send(error.message)

@@ -1,5 +1,5 @@
 import mongoose from 'mongoose'
-import * as bcrypt from "https://deno.land/x/bcrypt@v0.3.0/mod.ts";
+// import * as bcrypt from 'https://deno.land/x/bcrypt@v0.3.0/mod.ts'
 
 const userSchema = new mongoose.Schema({
 	firstName: { type: String, required: true },
@@ -59,11 +59,11 @@ const userSchema = new mongoose.Schema({
 }, { timestamps: true })
 
 // Hash and salt passwords
-userSchema.pre('save', async function (next) {
-	const salt = await bcrypt.genSalt()
-	this.password = await bcrypt.hash(this.password, salt)
-	next()
-})
+// userSchema.pre('save', async function (next) {
+// 	const salt = await bcrypt.genSalt()
+// 	this.password = await bcrypt.hash(this.password, salt)
+// 	next()
+// })
 
 const UserModel = mongoose.model('User', userSchema)
 
