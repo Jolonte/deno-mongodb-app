@@ -11,4 +11,8 @@ AuthRoute
 	.route('/login')
 	.post((req, res) => AuthController.loginUserByEmailAndPassword(req, res))
 
+AuthRoute
+	.route('/logout')
+	.post((req, res) => AuthController.logoutUserById(req, res))
+
 export default AuthRoute

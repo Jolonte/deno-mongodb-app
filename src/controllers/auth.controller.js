@@ -1,27 +1,30 @@
 import UserModel from '../models/user.model.js'
-import createToken from '../utils/createToken.utils.js'
 import * as bcrypt from 'https://deno.land/x/bcrypt@v0.4.1/mod.ts'
-import { setCookie } from 'https://deno.land/std@0.208.0/http/cookie.ts'
 
 const AuthController = {
 	singInUser: async (req, res) => {
 		try {
-			const user = await UserModel.create(req.body)
-			const token = await createToken(user._id)
+			// const userCreated = {
+			// 	firstName: req.body.firstName,
+			// 	lastName: req.body.lastName,
+			// 	age: req.body.age,
+			// 	sex: req.body.sex,
+			// 	email: req.body.email,
+			// 	password: req.body.password,
+			// 	cpf: req.body.cpf,
+			// 	address: req.body.address,
+			// 	cep: req.body.cep,
+			// 	auth: true,
+			// }
 
-			setCookie(res, {
-				name: 'jwt',
-				value: token,
-				httpOnly: true,
-				secure: true,
-				maxAge: 86400,
-			})
+			const user = await UserModel.create(req.body)
 
 			res.status(201).json({
 				userId: user._id,
 				msg: 'Operação concluída com sucesso!',
 			})
 		} catch (error) {
+			console.error('Error in signInUser:', error)
 			res.status(500).send(error.message)
 		}
 	},
@@ -39,14 +42,8 @@ const AuthController = {
 			const auth = await bcrypt.compare(password, user.password)
 
 			if (auth) {
-				const token = await createToken(user._id)
-
-				setCookie(res, {
-					name: 'jwt',
-					value: token,
-					httpOnly: true,
-					secure: true,
-					maxAge: 86400,
+				await UserModel.findByIdAndUpdate(user, { auth: true }, {
+					new: true,
 				})
 
 				res.status(200).json({
@@ -57,7 +54,30 @@ const AuthController = {
 				res.status(500).json({ msg: 'Senha incorreta.' })
 			}
 		} catch (error) {
+			console.error('Error in loginUserByEmailAndPassword:', error)
 			res.status(400).send(error.message)
+		}
+	},
+
+	logoutUserById: async (req, res) => {
+		try {
+			const id = req.body.id
+			const user = await UserModel.findByIdAndUpdate(id, {
+				auth: false,
+			}, { new: true })
+
+			if (!user) {
+				res.status(404).json('Usuário não encontrado.')
+				return
+			}
+
+			res.status(200).json({
+				userId: user._id,
+				msg: 'Operação bem sucedida.',
+			})
+		} catch (error) {
+			console.error('Erro em logoutUser:', error)
+			res.status(500).send(error.message)
 		}
 	},
 }

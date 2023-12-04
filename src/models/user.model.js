@@ -55,6 +55,7 @@ const userSchema = new mongoose.Schema({
 			message: 'CEP deve ter 8 caracteres',
 		},
 	},
+	auth: { type: Boolean, required: true, default: false },
 }, { timestamps: true })
 
 // Hash and salt passwords
