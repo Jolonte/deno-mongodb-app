@@ -5,7 +5,7 @@ const UserController = {
 		try {
 			const users = await UserModel.find()
 			console.log('Retrieved all users successfully.')
-			res.status(200).json(users)
+			res.status(201).json({ users, msg: 'Operation completed successfully!' })
 		} catch (error) {
 			console.error('Error fetching all users:', error.message)
 			res.status(500).json({
