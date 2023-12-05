@@ -5,7 +5,7 @@ const AuthRoute = express.Router()
 
 AuthRoute
 	.route('/singup')
-	.post((req, res) => AuthController.singInUser(req, res))
+	.post((req, res) => AuthController.signInUser(req, res))
 
 AuthRoute
 	.route('/login')
