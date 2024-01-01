@@ -42,9 +42,9 @@ Este projeto é parte da minha jornada de aprendizado, onde explorei a criação
 
 ## Como Testar
 
-### Deploy
+### Online
 
-- [Inventory Management App](https://inventory-management-app.deno.dev/)
+- [Deploy](https://inventory-management-app.deno.dev/)
 
 ### Localmente
 
