@@ -1,6 +1,18 @@
-# Inventory Management App
+# Deno APP
+
+![image](https://github.com/viniciusnevescosta/deno-app/assets/66970818/57a0f048-66cf-44d5-8308-a55c72716a80)
 
 Bem-vindo ao repositório do meu projeto de sistema de controle de estoque! Aqui, desenvolvi uma API Restful para gerenciar inventários, utilizando as tecnologias Mongoose, Express e DenoJs.
+
+- [Read in english](en_README.md)
+
+## Sumário de Conteúdos
+
+- [Visão Geral](#visão-geral)
+- [Tecnologias Utilizadas](#tecnologias-utilizadas)
+- [Funcionalidades](#funcionalidades)
+- [Como Testar](#como-testar)
+- [Aprendizados Adquiridos](#aprendizados-adquiridos)
 
 ## Visão Geral
 
@@ -30,18 +42,22 @@ Este projeto é parte da minha jornada de aprendizado, onde explorei a criação
 
 1. **Clone o Repositório:**
    ```bash
-   git clone https://github.com/viniciusnevescosta/inventory-management-app.git
+   git clone https://github.com/viniciusnevescosta/deno-app.git
    ```
 
 2. **Instale as Dependências:**
    ```bash
-   cd inventory-management-app
-   npm install
+   cd deno-app
+   deno install
    ```
 
 3. **Configure o Ambiente:**
-   - Crie um arquivo `.env` na raiz do projeto e forneça as variáveis de ambiente necessárias, como a conexão com o banco de dados MongoDB.
-
+   - Crie um arquivo `.env` na raiz do projeto e forneça as variáveis de ambiente necessárias, como a conexão com o banco de dados MongoDB.<br><br>
+   ```env
+   DB_USER=seu_usuario_mongodb
+   DB_PASSWORD=sua_senha_mongodb
+   ```
+   
 4. **Execute a Aplicação:**
    ```bash
    npm start
