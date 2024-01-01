@@ -58,10 +58,6 @@ Durante o desenvolvimento deste projeto, adquiri conhecimentos essenciais, inclu
 - 🛢 Manipulação de dados no MongoDB, utilizando o Mongoose para modelagem de objetos.
 - 🚀 Uso do DenoJs como uma alternativa segura e moderna para ambientes de execução JavaScript.
 
-## Próximos Passos
-
-Este projeto é apenas o ponto de partida para minha exploração no desenvolvimento de sistemas de controle de estoque. Planejo aprimorar suas funcionalidades, tornando-o mais robusto e eficiente. Contribuições e feedback são sempre bem-vindos!
-
 ---
 
-**Nota:** Este repositório destina-se à apresentação e organização do projeto de sistema de controle de estoque. Para contribuições e detalhes específicos do projeto, consulte o repositório correspondente.
+**Nota:** Este projeto foi arquivado pois representa um estudo concluído com sucesso. Não há planos de desenvolvimento adicional, pois seus objetivos foram alcançados com êxito.
