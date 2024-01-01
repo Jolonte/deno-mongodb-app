@@ -18,7 +18,7 @@ Bem-vindo ao repositório do meu projeto de sistema de controle de estoque! Aqui
 
 Este projeto é parte da minha jornada de aprendizado, onde explorei a criação de uma API eficiente para o controle de estoque. Utilizei o Mongoose como ODM (Object Data Modeling) para interagir com o banco de dados, o Express como framework web e o DenoJs para proporcionar uma experiência moderna e segura.
 
-- Consulte a [documentação da API](https://github.com/viniciusnevescosta/deno-app/wiki/API-Documentation).
+- Consulte a [documentação da API (pt-br)](https://github.com/viniciusnevescosta/deno-app/wiki/API-Documentation).
 
 ## Tecnologias Utilizadas
 
