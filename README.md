@@ -42,6 +42,12 @@ Este projeto é parte da minha jornada de aprendizado, onde explorei a criação
 
 ## Como Testar
 
+### Deploy
+
+- [Inventory Management App](https://inventory-management-app.deno.dev/)
+
+### Localmente
+
 1. **Clone o Repositório:**
    ```bash
    git clone https://github.com/viniciusnevescosta/deno-app.git
